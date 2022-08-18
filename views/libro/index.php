@@ -30,7 +30,13 @@ $this->params['breadcrumbs'][] = $this->title;
 
             'id',
             'titulo',
-            'imagen',
+            [
+                'format'=>'html',
+                'value'=> function($data){return Html::img($data->imagen, ['width'=> '60px']); }
+
+            ]
+            ,
+            // 'imagen',
             [
                 'class' => ActionColumn::className(),
                 'urlCreator' => function ($action, app\models\Libro $model, $key, $index, $column) {
